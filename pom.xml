@@ -1,0 +1,182 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>fly</groupId>
+  <artifactId>flyway-capabilities</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <packaging>jar</packaging>
+
+  <name>flyway-opportunities</name>
+  <url>http://maven.apache.org</url>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
+  <dependencies>
+
+    <!-- Flyway core -->
+    <dependency>
+      <groupId>org.flywaydb</groupId>
+      <artifactId>flyway-core</artifactId>
+      <version>4.0</version>
+    </dependency>
+
+      <!-- Spring JDBC for Spring jdbc template java migrations -->
+      <dependency>
+          <groupId>org.springframework</groupId>
+          <artifactId>spring-jdbc</artifactId>
+          <version>4.2.5.RELEASE</version>
+      </dependency>
+
+      <!-- Datasource connections pool -->
+      <dependency>
+        <groupId>org.apache.commons</groupId>
+        <artifactId>commons-dbcp2</artifactId>
+        <version>2.1.1</version>
+    </dependency>
+
+      <!-- In memory h2 database -->
+    <dependency>
+        <groupId>com.h2database</groupId>
+        <artifactId>h2</artifactId>
+        <version>1.4.191</version>
+    </dependency>
+
+    <!-- log4j logger -->
+    <dependency>
+      <groupId>log4j</groupId>
+      <artifactId>log4j</artifactId>
+      <version>1.2.17</version>
+    </dependency>
+
+    <!-- slf4j -->
+    <dependency>
+        <groupId>org.slf4j</groupId>
+        <artifactId>slf4j-log4j12</artifactId>
+        <version>1.7.5</version>
+    </dependency>
+
+    <!-- Junit -->
+    <dependency>
+        <groupId>junit</groupId>
+        <artifactId>junit</artifactId>
+        <version>4.12</version>
+        <scope>test</scope>
+    </dependency>
+
+    <!-- Flyway testing abilities via spring configuration -->
+    <dependency>
+        <groupId>org.flywaydb.flyway-test-extensions</groupId>
+        <artifactId>flyway-spring-test</artifactId>
+        <version>4.0</version>
+        <scope>test</scope>
+    </dependency>
+
+      <!-- Flyway with spring with dbunit support annotations -->
+      <dependency>
+          <groupId>org.flywaydb.flyway-test-extensions</groupId>
+          <artifactId>flyway-dbunit-spring4-test</artifactId>
+          <version>4.0</version>
+          <scope>test</scope>
+      </dependency>
+
+      <!-- db unit testing-->
+      <dependency>
+          <groupId>org.dbunit</groupId>
+          <artifactId>dbunit</artifactId>
+          <version>2.5.1</version>
+          <scope>test</scope>
+      </dependency>
+
+  </dependencies>
+
+  <build>
+    <!-- By default you can use flyway:clean, flyway:migrate, etc. maven plugin commands  and default flyway configuration is
+         config/flyway.properties for properties and db.migration for sql db migrations
+
+         Here is an example of using two dbs with different flyway configurations
+    -->
+    <plugins>
+      <plugin>
+        <groupId>org.flywaydb</groupId>
+        <artifactId>flyway-maven-plugin</artifactId>
+        <version>4.0</version>
+        <!-- Default configuration  for plugin-->
+        <configuration>
+          <configFile>src/main/resources/config/flyway.properties</configFile>
+          <placeholders>
+            <name>Fly</name>
+          </placeholders>
+            <locations>
+                <location>classpath:db/migration</location>
+            </locations>
+            <callbacks>
+                <callback>fly.callback.DefaultFlywayCallback</callback>
+            </callbacks>
+          <url>jdbc:h2:file:./db/fly</url>
+          <user>sa</user>
+        </configuration>
+        <executions>
+          <execution>
+            <id>first</id>
+            <phase>pre-integration-test</phase>
+            <goals>
+              <goal>migrate</goal>
+            </goals>
+            <configuration>
+              <url>jdbc:h2:file:./db/fly</url>
+              <user>sa</user>
+              <configFile>src/main/resources/config/flyway.properties</configFile>
+              <!-- Providing placeholder values-->
+              <placeholders>
+                <name>Flyway</name>
+              </placeholders>
+            </configuration>
+          </execution>
+          <execution>
+              <!-- Second migration configuration-->
+            <id>second</id>
+            <phase>pre-integration-test</phase>
+            <goals>
+              <goal>migrate</goal>
+            </goals>
+            <configuration>
+              <url>jdbc:h2:file:./target/fly</url>
+              <user>sa</user>
+              <driver>org.h2.Driver</driver>
+                <!-- Using custom prefix for migration files -->
+              <sqlMigrationPrefix>FLY-</sqlMigrationPrefix>
+              <locations>
+                <location>filesystem:src/main/resources/db.migration.second_db</location>
+              </locations>
+              <callbacks>
+                <callback>fly.callback.DefaultFlywayCallback</callback>
+              </callbacks>
+            </configuration>
+          </execution>
+        </executions>
+
+        <dependencies>
+          <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <version>1.4.191</version>
+          </dependency>
+        </dependencies>
+      </plugin>
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <configuration>
+                <source>1.6</source>
+                <target>1.6</target>
+            </configuration>
+        </plugin>
+
+    </plugins>
+
+  </build>
+
+</project>
