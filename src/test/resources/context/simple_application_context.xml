@@ -43,6 +43,10 @@
         </property>
     </bean>
 
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSourceRef"/>
+    </bean>
+
     <!-- Datasource configuration -->
     <bean id="dataSourceRef" name="dataSource"
           class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">

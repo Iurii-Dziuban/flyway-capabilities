@@ -29,7 +29,7 @@ public class FlywayMigrationWithSpringSqlInvocationTest {
     @Test
     @FlywayTest
     @SqlGroup(@Sql(scripts = "/testSqlFiles/test.sql", executionPhase = Sql.ExecutionPhase.AFTER_TEST_METHOD
-         , config = @SqlConfig(transactionMode = SqlConfig.TransactionMode.DEFAULT, errorMode = SqlConfig.ErrorMode.DEFAULT)))
+         , config = @SqlConfig(transactionMode = SqlConfig.TransactionMode.ISOLATED, errorMode = SqlConfig.ErrorMode.DEFAULT)))
     public void test() {
         log.info("Test");
     }
