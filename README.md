@@ -1,4 +1,6 @@
 # flyway-capabilities
+[![Build Status](https://travis-ci.org/Iurii-Dziuban/flyway-capabilities.svg?branch=master)](https://travis-ci.org/Iurii-Dziuban/flyway-capabilities)
+
 A project that shows flyway capabilities (https://flywaydb.org/)
 
 # Project parts
