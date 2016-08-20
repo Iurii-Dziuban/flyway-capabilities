@@ -1,5 +1,6 @@
 # flyway-capabilities
 [![Build Status](https://travis-ci.org/Iurii-Dziuban/flyway-capabilities.svg?branch=master)](https://travis-ci.org/Iurii-Dziuban/flyway-capabilities)
+[![Issue Count](https://codeclimate.com/github/Iurii-Dziuban/flyway-capabilities/badges/issue_count.svg)](https://codeclimate.com/github/Iurii-Dziuban/flyway-capabilities)
 
 A project that shows flyway capabilities (https://flywaydb.org/)
 
