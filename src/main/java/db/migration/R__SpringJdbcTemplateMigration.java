@@ -17,6 +17,6 @@ public class R__SpringJdbcTemplateMigration implements SpringJdbcMigration{
 
     @Override
     public void migrate(JdbcTemplate jdbcTemplate) throws Exception {
-        LOG.info("jdbc Template Fetch size = " + jdbcTemplate.getFetchSize());
+        LOG.info(" R__SpringJdbcTemplateMigration migration. Jdbc template fetch size = " + jdbcTemplate.getFetchSize());
     }
 }

@@ -12,6 +12,8 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <flyway.version>4.0.3</flyway.version>
+    <flyway.test>4.0.1</flyway.test>
   </properties>
 
   <dependencies>
@@ -20,7 +22,7 @@
     <dependency>
       <groupId>org.flywaydb</groupId>
       <artifactId>flyway-core</artifactId>
-      <version>4.0</version>
+      <version>${flyway.version}</version>
     </dependency>
 
       <!-- Spring JDBC for Spring jdbc template java migrations -->
@@ -70,7 +72,7 @@
     <dependency>
         <groupId>org.flywaydb.flyway-test-extensions</groupId>
         <artifactId>flyway-spring-test</artifactId>
-        <version>4.0</version>
+        <version>${flyway.test}</version>
         <scope>test</scope>
     </dependency>
 
@@ -78,7 +80,7 @@
       <dependency>
           <groupId>org.flywaydb.flyway-test-extensions</groupId>
           <artifactId>flyway-dbunit-spring4-test</artifactId>
-          <version>4.0</version>
+          <version>${flyway.test}</version>
           <scope>test</scope>
       </dependency>
 
@@ -102,7 +104,7 @@
       <plugin>
         <groupId>org.flywaydb</groupId>
         <artifactId>flyway-maven-plugin</artifactId>
-        <version>4.0</version>
+        <version>${flyway.version}</version>
         <!-- Default configuration  for plugin-->
         <configuration>
           <configFile>src/main/resources/config/flyway.properties</configFile>

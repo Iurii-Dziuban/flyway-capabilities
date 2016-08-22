@@ -12,7 +12,7 @@ import java.sql.Connection;
  */
 
 /**
- * Java callback example of flyway java callbacks
+ * Java callback example of flyway java callbacks. On each callback method makes logs.
  */
 public class DefaultFlywayCallback implements FlywayCallback {
 

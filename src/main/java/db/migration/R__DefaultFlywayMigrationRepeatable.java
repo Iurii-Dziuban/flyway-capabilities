@@ -18,6 +18,6 @@ public class R__DefaultFlywayMigrationRepeatable implements JdbcMigration {
 
     @Override
     public void migrate(Connection connection) throws Exception {
-        LOG.info("JDBC Repeatable migration");
+        LOG.info("JDBC Repeatable migration executed");
     }
 }
