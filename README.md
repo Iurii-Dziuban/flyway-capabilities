@@ -7,6 +7,7 @@
 </a>
 [![Issue Count](https://codeclimate.com/github/Iurii-Dziuban/flyway-capabilities/badges/issue_count.svg)](https://codeclimate.com/github/Iurii-Dziuban/flyway-capabilities)
 [![Dependency Status](https://www.versioneye.com/user/projects/57b8ae77fc182700376fe67e/badge.svg?style=flat-square)](https://www.versioneye.com/user/projects/57b8ae77fc182700376fe67e)
+[![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/Iurii-Dziuban/flyway-capabilities/issues)
 
 A project that shows flyway capabilities (https://flywaydb.org/)
 
