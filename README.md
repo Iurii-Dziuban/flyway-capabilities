@@ -1,10 +1,11 @@
 # flyway-capabilities
 [![Build Status](https://travis-ci.org/Iurii-Dziuban/flyway-capabilities.svg?branch=master)](https://travis-ci.org/Iurii-Dziuban/flyway-capabilities)
-[![Issue Count](https://codeclimate.com/github/Iurii-Dziuban/flyway-capabilities/badges/issue_count.svg)](https://codeclimate.com/github/Iurii-Dziuban/flyway-capabilities)
+[![Coverage Status](https://coveralls.io/repos/github/Iurii-Dziuban/flyway-capabilities/badge.svg?branch=master)](https://coveralls.io/github/Iurii-Dziuban/flyway-capabilities?branch=master)
 <a href="https://scan.coverity.com/projects/iurii-dziuban-flyway-capabilities">
   <img alt="Coverity Scan Build Status"
        src="https://scan.coverity.com/projects/9959/badge.svg"/>
 </a>
+[![Issue Count](https://codeclimate.com/github/Iurii-Dziuban/flyway-capabilities/badges/issue_count.svg)](https://codeclimate.com/github/Iurii-Dziuban/flyway-capabilities)
 [![Dependency Status](https://www.versioneye.com/user/projects/57b8ae77fc182700376fe67e/badge.svg?style=flat-square)](https://www.versioneye.com/user/projects/57b8ae77fc182700376fe67e)
 
 A project that shows flyway capabilities (https://flywaydb.org/)
