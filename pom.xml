@@ -17,14 +17,14 @@
     </properties>
 
     <scm>
-        <connection>scm:git:https://github.com/Iurii-Dziuban/algorithms.git</connection>
-        <developerConnection>scm:git:git@github.com:Iurii-Dziuban/algorithms.git</developerConnection>
-        <url>https://github.com/Iurii-Dziuban/algorithms</url>
+        <connection>scm:git:https://github.com/Iurii-Dziuban/flyway-capabilities.git</connection>
+        <developerConnection>scm:git:git@github.com:Iurii-Dziuban/flyway-capabilities.git</developerConnection>
+        <url>https://github.com/Iurii-Dziuban/flyway-capabilities</url>
         <tag>HEAD</tag>
     </scm>
 
     <ciManagement>
-        <url>https://travis-ci.org/Iurii-Dziuban/algorithms</url>
+        <url>https://travis-ci.org/Iurii-Dziuban/flyway-capabilities</url>
         <system>Travis</system>
     </ciManagement>
 
