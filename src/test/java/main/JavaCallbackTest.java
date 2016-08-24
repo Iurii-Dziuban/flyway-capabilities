@@ -19,7 +19,7 @@ import java.util.Map;
  */
 public class JavaCallbackTest {
 
-    private static Log log = LogFactory.getLog(TemplateApp.class);
+    private static Log log = LogFactory.getLog(JavaCallbackTest.class);
 
     @Test
     public void test() {
