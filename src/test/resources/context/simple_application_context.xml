@@ -36,7 +36,7 @@
                         <value>name</value>
                     </key>
                     <value>
-                        123
+                        [AnyName]
                     </value>
                 </entry>
             </map>
@@ -51,7 +51,7 @@
     <bean id="dataSourceRef" name="dataSource"
           class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
         <property name="driverClassName"><value>org.h2.Driver</value></property>
-        <property name="url"><value>jdbc:h2:./db/testCaseDb</value></property>
+        <property name="url"><value>jdbc:h2:./db/flywayFeatureTestDb</value></property>
         <property name="username"><value>sa</value></property>
         <property name="password"><value></value></property>
         <property name="maxActive" value="-1"/>

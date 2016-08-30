@@ -14,7 +14,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.support.DependencyInjectionTestExecutionListener;
 
 /**
- * Test shows hot to run flyway migration once per each test method @FlywayTest on each method
+ * Test shows how to run flyway migration once per each test method @FlywayTest on each method
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {"/context/simple_application_context.xml" })

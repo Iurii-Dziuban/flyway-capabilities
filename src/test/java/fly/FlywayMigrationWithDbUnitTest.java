@@ -18,7 +18,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 /**
  * Test shows how to integrate DBUnit support for Flyway tests
- * FlywayDBUnitTestExecutionListener.class listener is needed and configuration via @DBUnitSupport
+ * FlywayDBUnitTestExecutionListener.class listener is needed and configuration is done via @DBUnitSupport
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {"/context/simple_application_context.xml" })

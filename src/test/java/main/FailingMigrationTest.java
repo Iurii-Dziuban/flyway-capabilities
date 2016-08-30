@@ -25,7 +25,7 @@ public class FailingMigrationTest {
     public void test() {
         BasicDataSource ds = new BasicDataSource();
         ds.setDriverClassName("org.h2.Driver");
-        ds.setUrl("jdbc:h2:file:./db/main");
+        ds.setUrl("jdbc:h2:file:./db/FailingMigrationDb");
         ds.setUsername("sa");
         ds.setPassword("");
 
@@ -37,6 +37,7 @@ public class FailingMigrationTest {
         flyway.setPlaceholders(placeholders);
         flyway.clean();
         flyway.setBaselineVersionAsString("3");
+        flyway.validate();
         flyway.baseline();
         flyway.setLocations("failing_migration_sql", "db/migration");
         log.info("\n" + MigrationInfoDumper.dumpToAsciiTable(flyway.info().all()));

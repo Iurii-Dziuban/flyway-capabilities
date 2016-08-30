@@ -25,7 +25,7 @@ public class JavaCallbackTest {
     public void test() {
         BasicDataSource ds = new BasicDataSource();
         ds.setDriverClassName("org.h2.Driver");
-        ds.setUrl("jdbc:h2:file:./db/main");
+        ds.setUrl("jdbc:h2:file:./db/javaCallbackDb");
         ds.setUsername("sa");
         ds.setPassword("");
 

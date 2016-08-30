@@ -9,7 +9,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
  * Created by dziubani on 4/8/2016.
  */
 /**
- * Java repeatable spring jdbc template migration example. Used in the examples
+ * Java repeatable spring jdbc template migration example. Repeated if checksum is changed
  */
 public class R__SpringJdbcTemplateMigration implements SpringJdbcMigration{
 

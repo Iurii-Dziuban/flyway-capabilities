@@ -24,12 +24,12 @@ public class SetTargetVersionTest {
     public void test() {
         BasicDataSource ds = new BasicDataSource();
         ds.setDriverClassName("org.h2.Driver");
-        ds.setUrl("jdbc:h2:file:./db/main");
+        ds.setUrl("jdbc:h2:file:./db/setTargetVersionDb");
         ds.setUsername("sa");
         ds.setPassword("");
 
         Map<String, String> placeholders = new HashMap<String, String>();
-        placeholders.put("name", "Flyway");
+        placeholders.put("name", "[Flyway]");
 
         Flyway flyway = new Flyway();
         flyway.setDataSource(ds);

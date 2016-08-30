@@ -23,7 +23,7 @@ import javax.sql.DataSource;
 import java.sql.Connection;
 
 /**
- * Template to create different test scenarios with flyway
+ * Template to create different test scenarios with flyway test extensions
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {"/context/simple_application_context.xml" })

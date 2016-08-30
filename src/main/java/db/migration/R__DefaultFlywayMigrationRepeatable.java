@@ -11,7 +11,7 @@ import java.sql.Connection;
  */
 
 /**
- * Java repeatable jdbc migration example. Used in the examples
+ * Java repeatable jdbc migration example. Repeated if checksum is changed
  */
 public class R__DefaultFlywayMigrationRepeatable implements JdbcMigration {
     private static final Log LOG = LogFactory.getLog(R__DefaultFlywayMigrationRepeatable.class);

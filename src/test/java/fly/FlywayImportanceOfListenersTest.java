@@ -23,8 +23,8 @@ import java.sql.Connection;
  */
 
 /**
- * Test shows how Flyway migrations can be executed before testing and is working using annotations.
- * If you miss to tell to use DependencyInjection or FlywayTestExecution - it won't work
+ * Test shows how Flyway migrations can be executed before test run and work is done based on annotations.
+ * If you miss to tell to use DependencyInjection or FlywayTestExecution - it won't work. This configuration is needed
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {"/context/simple_application_context.xml" })
@@ -41,8 +41,7 @@ public class FlywayImportanceOfListenersTest {
 
     @Before
     public void setup() throws Exception {
-        DataSource ds = (DataSource) context.getBean("dataSourceRef");
-
+        DataSource ds = context.getBean("dataSourceRef", DataSource.class);
         con = ds.getConnection();
     }
 

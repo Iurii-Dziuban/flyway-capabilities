@@ -13,6 +13,8 @@
 -->
 <!-- Simple db unit data set for person table: id and name are provided-->
 <dataset>
-    <PERSON ID="10" NAME="DBUnit 1" />
-    <PERSON ID="11" NAME="DBUnit 2" />
+    <PERSON ID="10" NAME="Iurii Dziuban" />
+    <PERSON ID="11" NAME="Lampapos" />
+    <PERSON ID="12" NAME="VixenTael" />
+    <PERSON ID="13" NAME="Ashaevy" />
 </dataset>
