@@ -37,7 +37,6 @@ public class FailingMigrationTest {
         flyway.setPlaceholders(placeholders);
         flyway.clean();
         flyway.setBaselineVersionAsString("3");
-        flyway.validate();
         flyway.baseline();
         flyway.setLocations("failing_migration_sql", "db/migration");
         log.info("\n" + MigrationInfoDumper.dumpToAsciiTable(flyway.info().all()));
