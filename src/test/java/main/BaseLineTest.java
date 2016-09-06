@@ -1,5 +1,6 @@
 package main;
 
+import fly.callback.DefaultFlywayCallback;
 import org.apache.commons.dbcp2.BasicDataSource;
 import org.flywaydb.core.Flyway;
 import org.flywaydb.core.internal.info.MigrationInfoDumper;
@@ -41,6 +42,7 @@ public class BaseLineTest {
         Flyway flyway = new Flyway();
         flyway.setDataSource(ds);
         flyway.setPlaceholders(placeholders);
+        flyway.setCallbacks(new DefaultFlywayCallback());
         flyway.clean();
         flyway.setBaselineVersionAsString("3");
         flyway.baseline();
