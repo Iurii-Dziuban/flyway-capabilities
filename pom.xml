@@ -49,7 +49,7 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-jdbc</artifactId>
-            <version>4.3.3.RELEASE</version>
+            <version>4.3.4.RELEASE</version>
         </dependency>
 
         <!-- Datasource connections pool -->
@@ -63,7 +63,7 @@
         <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
-            <version>1.4.192</version>
+            <version>1.4.193</version>
         </dependency>
 
         <!-- log4j logger -->
@@ -184,7 +184,7 @@
                     <dependency>
                         <groupId>com.h2database</groupId>
                         <artifactId>h2</artifactId>
-                        <version>1.4.192</version>
+                        <version>1.4.193</version>
                     </dependency>
                 </dependencies>
             </plugin>
@@ -261,7 +261,7 @@
             <plugin>
                 <groupId>com.versioneye</groupId>
                 <artifactId>versioneye-maven-plugin</artifactId>
-                <version>3.10.2</version>
+                <version>3.11.0</version>
             </plugin>
 
         </plugins>
