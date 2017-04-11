@@ -7,7 +7,7 @@
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>flyway-opportunities</name>
+    <name>flyway-capabilities</name>
     <url>https://github.com/Iurii-Dziuban/flyway-capabilities</url>
 
     <properties>
