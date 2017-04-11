@@ -63,7 +63,7 @@
         <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
-            <version>1.4.193</version>
+            <version>1.4.194</version>
         </dependency>
 
         <!-- log4j logger -->
@@ -77,7 +77,7 @@
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-log4j12</artifactId>
-            <version>1.7.24</version>
+            <version>1.7.25</version>
         </dependency>
 
         <!-- Junit -->
@@ -184,7 +184,7 @@
                     <dependency>
                         <groupId>com.h2database</groupId>
                         <artifactId>h2</artifactId>
-                        <version>1.4.193</version>
+                        <version>1.4.194</version>
                     </dependency>
                 </dependencies>
             </plugin>
@@ -261,7 +261,7 @@
             <plugin>
                 <groupId>com.versioneye</groupId>
                 <artifactId>versioneye-maven-plugin</artifactId>
-                <version>3.11.1</version>
+                <version>3.11.2</version>
             </plugin>
 
         </plugins>
