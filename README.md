@@ -8,6 +8,10 @@
 
 A project that shows flyway capabilities (https://flywaydb.org/)
 
+# Checks
+
+Jacoco code coverage, pmd, checkstyle, enforcer, findbugs
+
 # Project parts
 Maven project that consists of the following parts:
 - Java-driven configurations for flyway migration features (src/main/java/main)
