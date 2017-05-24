@@ -18,7 +18,11 @@ import org.springframework.test.context.support.DependencyInjectionTestExecution
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {"/context/simple_application_context.xml" })
-@TestExecutionListeners({DependencyInjectionTestExecutionListener.class, FlywayTestExecutionListener.class, SqlScriptsTestExecutionListener.class, FlywayDBUnitTestExecutionListener.class })
+@TestExecutionListeners({
+        DependencyInjectionTestExecutionListener.class,
+        FlywayTestExecutionListener.class,
+        SqlScriptsTestExecutionListener.class,
+        FlywayDBUnitTestExecutionListener.class })
 public class FlywayMigrationForEachMethodTest {
 
     private Log log = LogFactory.getLog(FlywayMigrationForEachMethodTest.class);

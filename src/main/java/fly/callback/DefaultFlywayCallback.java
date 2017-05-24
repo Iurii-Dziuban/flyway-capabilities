@@ -45,7 +45,7 @@ public class DefaultFlywayCallback implements FlywayCallback {
 
     @Override
     public void afterEachMigrate(Connection dataConnection, MigrationInfo info) {
-        if (info != null && info.getVersion() != null) {
+        if (info.getVersion() != null) {
             String version = info.getVersion().toString();
             LOG.info(String.format("afterEachMigrate: Version %s: Do something", version));
         } else {

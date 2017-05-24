@@ -19,8 +19,10 @@ import java.util.Properties;
 
 /**
  * Simple example that shows how control to control priority of the config and programmatic properties
- * Target version in the config is 50 in java 20. When configure via properties files, already configured values will be replaced
- * In the end target version is 50 like in the config, locations are "some/folder" it is not replaced by properties, because there was no such configuration
+ * Target version in the config is 50 in java 20. When configure via properties files,
+ * already configured values will be replaced
+ * In the end target version is 50 like in the config,
+ * locations are "some/folder" it is not replaced by properties, because there was no such configuration
  */
 public class ConfigureViaPropertiesTest {
 

@@ -27,7 +27,11 @@ import java.sql.Connection;
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {"/context/simple_application_context.xml" })
-@TestExecutionListeners({DependencyInjectionTestExecutionListener.class, FlywayTestExecutionListener.class, SqlScriptsTestExecutionListener.class, FlywayDBUnitTestExecutionListener.class })
+@TestExecutionListeners({
+        DependencyInjectionTestExecutionListener.class,
+        FlywayTestExecutionListener.class,
+        SqlScriptsTestExecutionListener.class,
+        FlywayDBUnitTestExecutionListener.class })
 @FlywayTest
 public class TemplateTest
 {
