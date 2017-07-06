@@ -1,5 +1,6 @@
 package main;
 
+import model.PersonTableShower;
 import org.apache.commons.dbcp2.BasicDataSource;
 import org.flywaydb.core.Flyway;
 import org.flywaydb.core.internal.info.MigrationInfoDumper;
@@ -9,6 +10,8 @@ import org.junit.Test;
 
 import java.util.HashMap;
 import java.util.Map;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 /**
  * Created by dziubani on 4/11/2016.
@@ -39,11 +42,13 @@ public class OutOfOrderTest {
         flyway.clean();
         flyway.migrate();
         log.info("\n" + MigrationInfoDumper.dumpToAsciiTable(flyway.info().all()));
+        assertThat(PersonTableShower.printAndReturnCount(ds)).isEqualTo(3);
 
         flyway.setOutOfOrder(true);
         flyway.setLocations("classpath:db/migration", "classpath:other_migration");
         log.info("\n" + MigrationInfoDumper.dumpToAsciiTable(flyway.info().all()));
         flyway.migrate();
         log.info("\n" + MigrationInfoDumper.dumpToAsciiTable(flyway.info().all()));
+        assertThat(PersonTableShower.printAndReturnCount(ds)).isEqualTo(4);
     }
 }

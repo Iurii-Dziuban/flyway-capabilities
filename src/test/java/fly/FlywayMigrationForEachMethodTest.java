@@ -14,7 +14,9 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.support.DependencyInjectionTestExecutionListener;
 
 /**
- * Test shows how to run flyway migration once per each test method @FlywayTest on each method
+ * Test shows how to run flyway migration once per each test method via putting @FlywayTest on each test method.
+ * Run and see the logs.
+ * DB file: db/flywayFeatureTestDb.mv.db
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {"/context/simple_application_context.xml" })
@@ -25,17 +27,17 @@ import org.springframework.test.context.support.DependencyInjectionTestExecution
         FlywayDBUnitTestExecutionListener.class })
 public class FlywayMigrationForEachMethodTest {
 
-    private Log log = LogFactory.getLog(FlywayMigrationForEachMethodTest.class);
+    private static Log LOGGER = LogFactory.getLog(FlywayMigrationForEachMethodTest.class);
 
     @Test
     @FlywayTest
     public void test(){
-        log.info("Test");
+        LOGGER.info("Test");
     }
 
     @Test
     @FlywayTest
     public void test2(){
-        log.info("Test2");
+        LOGGER.info("Test2");
     }
 }

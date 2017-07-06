@@ -15,7 +15,9 @@ import org.springframework.test.context.TestExecutionListeners;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 /**
- * Tests shows how to run flyway migration once per whole test class @FlywayTest on class
+ * Tests shows how to run flyway migration once per whole test class via putting @FlywayTest on class
+ * Run and see the logs.
+ * DB file: db/flywayFeatureTestDb.mv.db
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {"/context/simple_application_context.xml" })

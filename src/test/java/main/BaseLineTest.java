@@ -3,6 +3,7 @@ package main;
 import fly.callback.DefaultFlywayCallback;
 import org.apache.commons.dbcp2.BasicDataSource;
 import org.flywaydb.core.Flyway;
+import org.flywaydb.core.api.MigrationVersion;
 import org.flywaydb.core.internal.info.MigrationInfoDumper;
 import org.flywaydb.core.internal.util.logging.Log;
 import org.flywaydb.core.internal.util.logging.LogFactory;
@@ -10,6 +11,8 @@ import org.junit.Test;
 
 import java.util.HashMap;
 import java.util.Map;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 /**
  * Created by dziubani on 4/11/2016.
@@ -23,7 +26,7 @@ import java.util.Map;
  */
 public class BaseLineTest {
 
-    private static Log log = LogFactory.getLog(BaseLineTest.class);
+    private static Log LOGGER = LogFactory.getLog(BaseLineTest.class);
 
     @Test
     public void test() {
@@ -43,8 +46,12 @@ public class BaseLineTest {
         flyway.clean();
         flyway.setBaselineVersionAsString("3");
         flyway.baseline();
-        log.info("\n" + MigrationInfoDumper.dumpToAsciiTable(flyway.info().all()));
+
+        assertThat(flyway.info().current().getVersion()).isEqualTo(MigrationVersion.fromVersion("3"));
+
+        LOGGER.info("\n" + MigrationInfoDumper.dumpToAsciiTable(flyway.info().all()));
         flyway.migrate();
-        log.info("\n" + MigrationInfoDumper.dumpToAsciiTable(flyway.info().all()));
+
+        LOGGER.info("\n" + MigrationInfoDumper.dumpToAsciiTable(flyway.info().all()));
     }
 }

@@ -35,9 +35,7 @@
                     <key>
                         <value>name</value>
                     </key>
-                    <value>
-                        [AnyName]
-                    </value>
+                    <value>[AnyName]</value>
                 </entry>
             </map>
         </property>

@@ -2,16 +2,18 @@ package main;
 
 import org.apache.commons.dbcp2.BasicDataSource;
 import org.flywaydb.core.Flyway;
+import org.flywaydb.core.api.MigrationVersion;
 import org.flywaydb.core.internal.util.logging.Log;
 import org.flywaydb.core.internal.util.logging.LogFactory;
 import org.junit.Test;
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 /**
  * Created by dziubani on 4/11/2016.
@@ -26,10 +28,10 @@ import java.util.Properties;
  */
 public class ConfigureViaPropertiesTest {
 
-    private static Log log = LogFactory.getLog(ConfigureViaPropertiesTest.class);
+    private static Log LOGGER = LogFactory.getLog(ConfigureViaPropertiesTest.class);
 
     @Test
-    public void test() {
+    public void test() throws IOException {
         BasicDataSource ds = new BasicDataSource();
         ds.setDriverClassName("org.h2.Driver");
         ds.setUrl("jdbc:h2:file:./db/configureViaPropertiesDb");
@@ -45,17 +47,15 @@ public class ConfigureViaPropertiesTest {
         flyway.setTargetAsString("20");
         flyway.setLocations("some/folder");
 
-        try {
-            FileInputStream input = new FileInputStream("src/main/resources/sample.properties");
-            Properties properties = new Properties();
-            properties.load(input);
-            flyway.configure(properties);
-        } catch (FileNotFoundException e) {
-            log.error("File not found exception");
-        } catch (IOException e) {
-            log.error("Exception reading file");
-        }
-        log.info("flyway target is " + flyway.getTarget());
-        log.debug("locations are " + flyway.getLocations()[0]);
+        FileInputStream input = new FileInputStream("src/main/resources/sample.properties");
+        Properties properties = new Properties();
+        properties.load(input);
+        flyway.configure(properties);
+
+        LOGGER.info("flyway target is " + flyway.getTarget());
+        LOGGER.info("locations are " + flyway.getLocations()[0]);
+        assertThat(flyway.getTarget()).isEqualTo(MigrationVersion.fromVersion("50"));
+        assertThat(flyway.getLocations()).containsExactly("classpath:some/folder");
+        assertThat(flyway.getPlaceholders().get("app")).isEqualTo("My programmatic name");
     }
 }

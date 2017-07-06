@@ -1,2 +1,2 @@
 -- sql script for testing
-select sysdate from dual;
+insert into PERSON (ID, NAME) values (5, 'Additional SQL');

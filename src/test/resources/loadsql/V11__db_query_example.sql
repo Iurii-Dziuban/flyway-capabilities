@@ -1,2 +1,2 @@
 -- additional migration
-select sysdate from dual;
+insert into PERSON (ID, NAME) values (6, 'Additional loadsql SQL');
