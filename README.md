@@ -8,7 +8,7 @@
 
 A project that shows flyway capabilities **(https://flywaydb.org/)**
 
-Table of contents:
+## Table of contents:
  * [Static Analysis QA Checks](#checks)
  * [Project parts](#project-parts)
  * [Flyway main features](#flyway-main-features-demo)
