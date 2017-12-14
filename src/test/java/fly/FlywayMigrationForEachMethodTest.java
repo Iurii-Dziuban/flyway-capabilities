@@ -1,7 +1,7 @@
 package fly;
 
-import org.flywaydb.core.internal.util.logging.Log;
-import org.flywaydb.core.internal.util.logging.LogFactory;
+import org.flywaydb.core.api.logging.Log;
+import org.flywaydb.core.api.logging.LogFactory;
 import org.flywaydb.test.annotation.FlywayTest;
 import org.flywaydb.test.dbunit.FlywayDBUnitTestExecutionListener;
 import org.flywaydb.test.junit.FlywayTestExecutionListener;

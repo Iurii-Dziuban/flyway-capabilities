@@ -1,8 +1,8 @@
 package db.migration;
 
+import org.flywaydb.core.api.logging.Log;
+import org.flywaydb.core.api.logging.LogFactory;
 import org.flywaydb.core.api.migration.jdbc.JdbcMigration;
-import org.flywaydb.core.internal.util.logging.Log;
-import org.flywaydb.core.internal.util.logging.LogFactory;
 
 import java.sql.Connection;
 

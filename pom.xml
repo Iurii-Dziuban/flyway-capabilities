@@ -12,13 +12,18 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <flyway.version>4.2.0</flyway.version>
-        <flyway.test>4.2.0.2</flyway.test>
+        <flyway.version>5.0.2</flyway.version>
         <h2.version>1.4.196</h2.version>
         <java.version>1.8</java.version>
         <spring.version>5.0.2.RELEASE</spring.version>
         <jacoco.ratio.instruction>1.00</jacoco.ratio.instruction>
         <jacoco.ratio.bundle>1.00</jacoco.ratio.bundle>
+        <test.flyway.lib>4.2.0.2</test.flyway.lib>
+        <logback.version>1.2.3</logback.version>
+        <slf4j.version>1.7.25</slf4j.version>
+        <groovy.version>2.4.13</groovy.version>
+        <log4j2.version>2.10.0</log4j2.version>
+        <log4j.version>1.2.17</log4j.version>
     </properties>
 
     <scm>
@@ -81,14 +86,7 @@
         <dependency>
             <groupId>log4j</groupId>
             <artifactId>log4j</artifactId>
-            <version>1.2.17</version>
-        </dependency>
-
-        <!-- slf4j -->
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-log4j12</artifactId>
-            <version>1.7.25</version>
+            <version>${log4j.version}</version>
         </dependency>
 
         <!-- Junit -->
@@ -116,7 +114,7 @@
         <dependency>
             <groupId>org.flywaydb.flyway-test-extensions</groupId>
             <artifactId>flyway-spring-test</artifactId>
-            <version>${flyway.test}</version>
+            <version>${test.flyway.lib}</version>
             <scope>test</scope>
             <exclusions>
                 <exclusion>
@@ -145,7 +143,7 @@
         <dependency>
             <groupId>org.flywaydb.flyway-test-extensions</groupId>
             <artifactId>flyway-spring4-test</artifactId>
-            <version>${flyway.test}</version>
+            <version>${test.flyway.lib}</version>
             <scope>test</scope>
             <exclusions>
                 <exclusion>
@@ -171,7 +169,7 @@
         <dependency>
             <groupId>org.flywaydb.flyway-test-extensions</groupId>
             <artifactId>flyway-dbunit-spring4-test</artifactId>
-            <version>${flyway.test}</version>
+            <version>${test.flyway.lib}</version>
             <scope>test</scope>
             <exclusions>
                 <exclusion>
@@ -197,6 +195,57 @@
                     <groupId>org.slf4j</groupId>
                 </exclusion>
             </exclusions>
+        </dependency>
+
+        <!-- Use slf4j for tests only  -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>${slf4j.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- slf4j to log4j-->
+        <!-- <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+            <version>${slf4j.version}</version>
+            <scope>test</scope>
+        </dependency> -->
+
+        <!-- Uncomment for groovy logback -->
+        <dependency>
+            <groupId>org.codehaus.groovy</groupId>
+            <artifactId>groovy</artifactId>
+            <version>${groovy.version}</version>
+            <scope>runtime</scope>
+        </dependency>
+
+        <!-- uncomment for logback -->
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>${logback.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-core</artifactId>
+            <version>${logback.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- log4j2 -->
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-api</artifactId>
+            <version>${log4j2.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>${log4j2.version}</version>
         </dependency>
 
     </dependencies>
@@ -321,6 +370,12 @@
                 <artifactId>jacoco-maven-plugin</artifactId>
                 <version>0.7.9</version>
                 <configuration>
+
+                    <excludes>
+                        <exclude>fly/callback/AbstractFlywayCallback.*</exclude>
+                        <exclude>main/UndoMain.*</exclude>
+                    </excludes>
+
                     <rules>
                         <rule>
                             <element>BUNDLE</element>

@@ -12,14 +12,17 @@
     limitations under the License.
 -->
 
-<!-- Log4j properties used by flyway main classes under the hood -->
+<!-- Should move to log4j 2 version in support of commons logging. org.apache.commons.logging.LogFactory
+Or via slf4j - Log4j 1 version properties used by flyway main classes under the hood -->
+
 <!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
 
 <log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+
     <appender name="console" class="org.apache.log4j.ConsoleAppender">
         <param name="Target" value="System.out"/>
         <layout class="org.apache.log4j.PatternLayout">
-            <param name="ConversionPattern" value="%d{ISO8601} %t %-5p %c{1} - %m%n"/>
+            <param name="ConversionPattern" value="%d{ISO8601} [LOG4J] %t %-5p %c{1} - %m%n"/>
         </layout>
     </appender>
 
@@ -28,6 +31,11 @@
         <appender-ref ref="console"/>
     </logger>
     <logger name="org.flyway" additivity="false">
+        <level value="debug"/>
+        <appender-ref ref="console"/>
+    </logger>
+
+    <logger name="org.flywaydb" additivity="false">
         <level value="debug"/>
         <appender-ref ref="console"/>
     </logger>

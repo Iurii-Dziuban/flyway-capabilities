@@ -6,7 +6,7 @@
 [![Dependency Status](https://www.versioneye.com/user/projects/57b8ae77fc182700376fe67e/badge.svg?style=flat-square)](https://www.versioneye.com/user/projects/57b8ae77fc182700376fe67e)
 [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/Iurii-Dziuban/flyway-capabilities/issues)
 
-A project that shows flyway capabilities **(https://flywaydb.org/)**
+A project that shows flyway capabilities **(https://flywaydb.org/)** with different logging mechanisms
 
 ## Table of contents:
  * [Static Analysis QA Checks](#checks)
@@ -41,15 +41,32 @@ In case support for couple db migrations needed it can be described in the confi
 
 **Test libraries:** `junit`, `flyway-spring-test` flyway test integration via spring configuration, `flyway-dbunit-spring4-test` db unit support with spring and flyway and `db unit` itself.
 
+**Logging:** `commons logging` with possible : `log4j2`, `slf4j`, `java util logging` and
+`slf4j` with `log4j`, `logback`, `logback groovy` configurations
+
 # Logging
-Flyway logging logic is described in the `org.flywaydb.core.internal.util.logging.LogFactory` class. 
-The order of finding appropriate logger is the following:
-- Android log
-- Slf4j
-- Apache-commons
+Flyway logging logic is described in the `org.flywaydb.core.api.logging.LogFactory` class. 
+The order of finding appropriate logger is the following (not finding moving to next in the list):
+- Android log (not present / not mobile)
+- Slf4j (Test scope)
+- Apache-commons (Main scope)
 - java.util.log
 
-In the examples `Slf4j` with `log4j` configuration is used.
+Test logging with Slf4j (Run any test to see it)
+- In the test examples `Slf4j` with `logback groovy` configuration is used for tests logging.
+- In order to activate `Slf4j` with `log4j` configuration enable `slf4j-log4j12` dependency
+- In order to activate `Slf4j` with `logback.xml` rename it to `logback-test.xml`
+
+Main logging with commons logging , logic described in `org.apache.commons.logging.LogFactory` :
+
+- log4j2 (configured)
+- slf4j
+- java.util.logging
+
+Run `UndoMain` as an example : 
+- As a default `commons logging` with `log4j2` for main (`commons.logging.properties` is not used)
+- In case updating maven scope `compile` of `Slf4j` dependency (instead of `test`) it will run similar as tests.
+
 
 # Flyway default configuration
 Default Flyway configuration can be found in the class `org.flywaydb.core.Flyway` is the following:

@@ -1,9 +1,8 @@
 package fly.callback;
 
 import org.flywaydb.core.api.MigrationInfo;
-import org.flywaydb.core.api.callback.FlywayCallback;
-import org.flywaydb.core.internal.util.logging.Log;
-import org.flywaydb.core.internal.util.logging.LogFactory;
+import org.flywaydb.core.api.logging.Log;
+import org.flywaydb.core.api.logging.LogFactory;
 
 import java.sql.Connection;
 
@@ -14,7 +13,7 @@ import java.sql.Connection;
 /**
  * Java callback example of flyway java callbacks. On each callback method makes logs.
  */
-public class DefaultFlywayCallback implements FlywayCallback {
+public class DefaultFlywayCallback extends AbstractFlywayCallback {
 
     private static final Log LOG = LogFactory.getLog(DefaultFlywayCallback.class);
 
