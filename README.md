@@ -16,10 +16,11 @@ A project that shows flyway capabilities **(https://flywaydb.org/)** with differ
  * [Build configuration](#pomxml)
  * [Logging configuration](#logging)
  * [Flyway default configuration](#flyway-default-configuration)
+ * [Ideas to try](#ideas)
 
 # Checks
 
-`Jacoco` code coverage, `pmd`, `checkstyle`, `enforcer`, `findbugs`
+`Jacoco`/`cobertura` code coverage, `pmd`, `checkstyle`, `enforcer`, `findbugs`
 
 # Project parts
 Maven project that consists of the following parts:
@@ -77,3 +78,5 @@ Default Flyway configuration can be found in the class `org.flywaydb.core.Flyway
 - Versioned migrations file names start with `V`
 - Repeatable migrations file names start with `R`
 - Separator between versions is `__`
+
+# Ideas
