@@ -2,10 +2,10 @@ package fly;
 
 import org.flywaydb.core.api.logging.Log;
 import org.flywaydb.core.api.logging.LogFactory;
+import org.flywaydb.test.FlywayTestExecutionListener;
 import org.flywaydb.test.annotation.FlywayTest;
 import org.flywaydb.test.dbunit.DBUnitSupport;
 import org.flywaydb.test.dbunit.FlywayDBUnitTestExecutionListener;
-import org.flywaydb.test.junit.FlywayTestExecutionListener;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -36,6 +36,7 @@ import java.sql.Connection;
 public class TemplateTest
 {
     private Log log = LogFactory.getLog(TemplateTest.class);
+
     @Autowired
     protected ApplicationContext context;
 
@@ -67,7 +68,7 @@ public class TemplateTest
         log.info("Test");
     }
 
-    @Test
+    //@Test
     @FlywayTest(locationsForMigrate = "loadsql")
     @Sql(scripts = "/testSqlFiles/test.sql", executionPhase = Sql.ExecutionPhase.AFTER_TEST_METHOD)
     public void test3() {

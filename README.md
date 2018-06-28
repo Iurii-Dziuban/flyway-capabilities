@@ -80,3 +80,4 @@ Default Flyway configuration can be found in the class `org.flywaydb.core.Flyway
 - Separator between versions is `__`
 
 # Ideas
+1. Migrate the deprecated api

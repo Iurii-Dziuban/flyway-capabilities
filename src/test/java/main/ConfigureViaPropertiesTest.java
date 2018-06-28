@@ -2,6 +2,7 @@ package main;
 
 import org.apache.commons.dbcp2.BasicDataSource;
 import org.flywaydb.core.Flyway;
+import org.flywaydb.core.api.Location;
 import org.flywaydb.core.api.MigrationVersion;
 import org.flywaydb.core.api.logging.Log;
 import org.flywaydb.core.api.logging.LogFactory;
@@ -55,7 +56,7 @@ public class ConfigureViaPropertiesTest {
         LOGGER.info("flyway target is " + flyway.getTarget());
         LOGGER.info("locations are " + flyway.getLocations()[0]);
         assertThat(flyway.getTarget()).isEqualTo(MigrationVersion.fromVersion("50"));
-        assertThat(flyway.getLocations()).containsExactly("classpath:some/folder");
+        assertThat(flyway.getLocations()).containsExactly(new Location("classpath:some/folder"));
         assertThat(flyway.getPlaceholders().get("app")).isEqualTo("My programmatic name");
     }
 }
